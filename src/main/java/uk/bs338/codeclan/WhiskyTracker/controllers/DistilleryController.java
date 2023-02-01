@@ -1,5 +1,6 @@
 package uk.bs338.codeclan.WhiskyTracker.controllers;
 
+import org.springframework.web.bind.annotation.ResponseStatus;
 import uk.bs338.codeclan.WhiskyTracker.models.Distillery;
 import uk.bs338.codeclan.WhiskyTracker.repositories.DistilleryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,14 @@ public class DistilleryController {
         else {
             return new ResponseEntity<>(distilleryRepository.findAll(), HttpStatus.OK);
         }
-
     }
 
+    @GetMapping("/distilleries/having")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Distillery> getByWhiskyHaving(
+            @RequestParam(name = "age") int age
+    ) {
+        return distilleryRepository.findByWhiskiesAge(age);
+    }
 
 }
