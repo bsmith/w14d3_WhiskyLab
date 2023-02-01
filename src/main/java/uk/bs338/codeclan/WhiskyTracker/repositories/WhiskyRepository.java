@@ -1,6 +1,6 @@
-package com.codeclan.example.WhiskyTracker.repositories;
+package uk.bs338.codeclan.WhiskyTracker.repositories;
 
-import com.codeclan.example.WhiskyTracker.models.Whisky;
+import uk.bs338.codeclan.WhiskyTracker.models.Whisky;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

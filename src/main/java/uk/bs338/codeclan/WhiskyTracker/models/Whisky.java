@@ -1,4 +1,4 @@
-package com.codeclan.example.WhiskyTracker.models;
+package uk.bs338.codeclan.WhiskyTracker.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

@@ -1,18 +1,20 @@
-package com.codeclan.example.WhiskyTracker.components;
+package uk.bs338.codeclan.WhiskyTracker.components;
 
 
-import com.codeclan.example.WhiskyTracker.models.Distillery;
-import com.codeclan.example.WhiskyTracker.models.Whisky;
-import com.codeclan.example.WhiskyTracker.repositories.DistilleryRepository;
-import com.codeclan.example.WhiskyTracker.repositories.WhiskyRepository;
+import uk.bs338.codeclan.WhiskyTracker.models.Distillery;
+import uk.bs338.codeclan.WhiskyTracker.models.Whisky;
+import uk.bs338.codeclan.WhiskyTracker.repositories.DistilleryRepository;
+import uk.bs338.codeclan.WhiskyTracker.repositories.WhiskyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Profile("!test") //Run every time EXCEPT Tests
-//@Component
+@ConditionalOnExpression("${dataLoaderEnabled:false}")
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
